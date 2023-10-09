@@ -1,38 +1,52 @@
-# create-svelte
+# GrowPal-Web
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+## About
 
-## Creating a project
+This is a website written with the Svelte Framework. This is known to be the most fun to use web framework currently existing in the world of web frameworks.
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+Growpal is an ecommerce app made specifically for apartment and villa societies. You might have seen sellers in your society selling home made food, baked cakes, jewellery, clothes etc. The way they market now is just through annoying and spammy WhatsApp forwards. This is not ideal and this project aims to solve that by building a custom made area specific ecommerce app for these sellers.
 
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+1. Make sure you have `nodejs` installed on your system.
+2. Clone this repository by running this on a shell: `git clone git@github.com:MUNSoc-PESUECC/MUNSocWebsite.git`
+3. cd into the cloned directory: `cd MUNSocWebsite`
+4. Run `npm install` to install all the needed dependencies
+5. Run `yarn run dev` to localhost the website
+6. You can find the website at `http://localhost:5173`
 
-```bash
-npm run dev
+## Folder Structure
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+Most of of your development will be in the src folder. It looks like this:
+
+```shell
+src
+├── app.css
+├── app.html
+├── index.test.js
+├── lib
+│   └── store.js
+└── routes
+    ├── +layout.svelte
+    ├── +page.js
+    ├── +page.svelte
+    ├── about
+    │   └── +page.svelte
+    └── sell
+        └── +page.svelte
+
+5 directories, 9 files
 ```
 
-## Building
+Every folder inside the `/routes` folder is a route on the web application. This is similar to frameworks like `Next.JS`. Every route has a `+page.svelte` file inside them which contains the web page contents for that particular route. Please aproach the maintainer or look up documentation for any kind of clarifications.
 
-To create a production version of your app:
+## Tech Used
 
-```bash
-npm run build
-```
+### The technologies used are
 
-You can preview the production build with `npm run preview`.
+1. Svelte | [docs](https://svelte.dev/docs) | [tutorial](https://svelte.dev/tutorial/basics)
+2. Sveltekit | [docs](https://kit.svelte.dev/docs/introduction)
+3. Vite | [docs](https://vitejs.dev/guide/)
+4. Tailwind CSS | [docs](https://tailwindcss.com/docs/installation)
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+The website is server-side-rendered using `sveltekit` and hosted on `vercel`
