@@ -50,3 +50,10 @@ Every folder inside the `/routes` folder is a route on the web application. This
 4. Tailwind CSS | [docs](https://tailwindcss.com/docs/installation)
 
 The website is server-side-rendered using `sveltekit` and hosted on `vercel`
+
+## Maintainer
+
+Anurag Rao [@anuragrao04](https://github.com/anuragrao04)
+
+email: mailto:aoanur2004@gmail.com
+phone number: +91 9663006833
