@@ -55,5 +55,5 @@ The website is server-side-rendered using `sveltekit` and hosted on `vercel`
 
 Anurag Rao [@anuragrao04](https://github.com/anuragrao04)
 
-email: mailto:aoanur2004@gmail.com
+email: [roanur2004@gmail.com](mailto:raoanu2004@gmail.com)
 phone number: +91 9663006833
