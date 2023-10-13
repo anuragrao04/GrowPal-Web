@@ -5,14 +5,70 @@
         <img src="https://cdn.searchenginejournal.com/wp-content/uploads/2022/03/small-business-marketing-62432218f1319-sej.png" alt="" class="w-11/12 h-auto rounded-md max-w-md" />
     </div>
 </body>
-<style>
 
-    *{
-        font-family: 'Oxygen', sans-serif;
-    }
-    body {
-        background-color: rgb(30, 30, 30);
-    }
+
+    
+
+<style>
+  * {
+    font-family: 'Oxygen', sans-serif;
+  }
+
+  body {
+    background-color: rgb(40, 30, 30);
+  }
+
+  .mt-10 {
+    margin-top: 20px;
+  }
+
+  .pr-10 {
+    padding-right: 25px;
+  }
+
+  .pl-10 {
+    padding-left: 25px;
+  }
+
+  .pb-10 {
+    padding-bottom: 20px;
+  }
+
+  .text-white {
+    color: white;
+  }
+
+
+  .flex {
+    display: flex;
+  }
+
+  .justify-center {
+    justify-content: right;
+  }
+
+ 
+
+  .h-auto {
+    height: auto;
+  }
+  .max-w-md {
+    max-width: 30rem; 
+  }
+
+  .rounded-md {
+    border-radius: 0.400rem; 
+  }
+
+  
+</style>
+
+
+  <div class="flex justify-center">
+    <img src="https://cdn.searchenginejournal.com/wp-content/uploads/2022/03/small-business-marketing-62432218f1319-sej.png" alt="" class="w-11/12 h-auto rounded-md max-w-md" />
+  </div>
+</body>
+
 </style>
 
 
