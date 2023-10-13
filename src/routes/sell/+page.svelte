@@ -78,8 +78,8 @@
         }
 
         
-        // document.getElementById("SellForm").reset();
-        // window.open('/');
+        document.getElementById("SellForm").reset();
+        window.open('/');
         // setContext('products', products);
     }
 </script>
