@@ -73,9 +73,7 @@
         products.push(data)
         console.log(products);
         // add to database
-        for(let dataa of products) {
-            await addDoc(collection(db, "products"), dataa);
-        }
+        await addDoc(collection(db, "products"), data);
 
         
         document.getElementById("SellForm").reset();
