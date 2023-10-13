@@ -1,4 +1,6 @@
 import { writable } from "svelte/store";
+
+export const user = writable(null);
 export var products = writable('products');
 
 products.set([

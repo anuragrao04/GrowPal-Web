@@ -1,7 +1,7 @@
-
-
-
 <script>
+import { user } from "$lib/store";
+import { goto } from "$app/navigation";
+import { onMount } from "svelte";
 
 export let products = [
     {
@@ -72,13 +72,24 @@ export let products = [
     },
   ];
 
+onMount(async () => {
+    if (!$user) {
+        goto("/login");
+    }
+});
+
 
 </script>
 
 
 <body>
 
-<h1 class="text-center mt-10 pb-10 text-white md:text-3xl text-xl "> Hey! Welcome to GrowPal </h1>
+<h1 class="text-center mt-10 pb-10 text-white md:text-3xl text-xl "> Hey! {$user?.displayName}. Welcome to GrowPal
+<button class="border-4 rounded-md p-3 px-5 text-white text-xl m-3" on:click={() => {
+    $user = null;
+    goto("/login");
+}}>Logout</button>
+</h1>
 
 <div class="card-wrapper ml-5 mr-5">
     {#each products as product}
