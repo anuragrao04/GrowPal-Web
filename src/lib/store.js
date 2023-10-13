@@ -5,10 +5,10 @@ import "firebase/firestore";
 const firebaseConfig = {
     apiKey: "YOUR_API_KEY",
     authDomain: "YOUR_AUTH_DOMAIN",
-    projectId: "YOUR_PROJECT_ID",
+    projectId: "gopall-31d10",
     storageBucket: "YOUR_STORAGE_BUCKET",
     messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId: "YOUR_APP_ID"
+    appId: "1:288313126843:web:df9f79819b9416e51e5e9e"
   };
 firebase.initializeApp(firebaseConfig);
 
