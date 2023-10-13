@@ -1,6 +1,12 @@
 import { writable } from "svelte/store";
+
 import firebase from "firebase/app";
 import "firebase/firestore";
+
+
+export const user = writable(null);
+export var products = writable('products');
+
 
 const firebaseConfig = {
     apiKey: "YOUR_API_KEY",
