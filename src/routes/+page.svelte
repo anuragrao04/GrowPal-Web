@@ -2,6 +2,8 @@
 import { user } from "$lib/store";
 import { goto } from "$app/navigation";
 import { onMount } from "svelte";
+import { db } from '../lib/firebase.js';
+import { getDocs, collection } from "firebase/firestore";
 
 export let products = [
     {
@@ -75,6 +77,11 @@ export let products = [
 onMount(async () => {
     if (!$user) {
         goto("/login");
+    } else {
+        // Read from Firestore and update products
+        const productsRef = collection(db, "products");
+        const productsSnapshot = await getDocs(productsRef);
+        products = productsSnapshot.docs.map((doc) => doc.data());
     }
 });
 

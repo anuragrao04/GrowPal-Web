@@ -5,6 +5,10 @@
     // let products = getContext('products');
     // console.log(typeof products);
     // console.log(products);
+    import { addDoc, collection } from "firebase/firestore";
+    import { db } from '../../lib/firebase.js';
+    import { storage } from "../../lib/firebase";
+    import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
     let products = [
     {
         name : "Tupperware Bottle",
@@ -61,15 +65,37 @@
     },
 ];
     
-    function onSubmit(e) {
+    async function onSubmit(e) {
         const formData = new FormData(e.target);
         const data = {};
         for (let field of formData) {
             const [key, value] = field;
             data[key] = value;
         }
-        products.push(data)
-        console.log(products);
+        const file = e.target.img.files[0];
+        const storageRef = ref(storage, file.name);
+        const uploadTask = uploadBytesResumable(storageRef, file);
+
+        uploadTask.on(
+            "state_changed",
+            (snapshot) => {
+                const progress =
+                    (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                console.log("Upload is " + progress + "% done");
+            },
+            (error) => {
+                console.log(error);
+            },
+            () => {
+                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                    console.log("File available at", downloadURL);
+                });
+            }
+        );
+        data['img'] = await getDownloadURL(uploadTask.snapshot.ref);
+        // add to database
+        await addDoc(collection(db, "products"), data);
+
         
         document.getElementById("SellForm").reset();
         window.open('/');
@@ -111,9 +137,9 @@
 
         <div class="form-control">
             <label for="details">
-                An image of your product:
+                URL of the image of your product:
             </label>
-            <input name="img" id="img" type = "file" defaultValue = "NULL"/>
+            <input name="img" id="img" type = "file"/>
         </div>
   
         <div class="form-control">
