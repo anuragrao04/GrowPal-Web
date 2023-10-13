@@ -7,6 +7,8 @@
     // console.log(products);
     import { addDoc, collection } from "firebase/firestore";
     import { db } from '../../lib/firebase.js';
+    import { storage } from "../../lib/firebase";
+    import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
     let products = [
     {
         name : "Tupperware Bottle",
@@ -70,8 +72,27 @@
             const [key, value] = field;
             data[key] = value;
         }
-        products.push(data)
-        console.log(products);
+        const file = e.target[0].files[0];
+        const storageRef = ref(storage, file.name);
+        const uploadTask = uploadBytesResumable(storageRef, file);
+
+        uploadTask.on(
+            "state_changed",
+            (snapshot) => {
+                const progress =
+                    (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                console.log("Upload is " + progress + "% done");
+            },
+            (error) => {
+                console.log(error);
+            },
+            () => {
+                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                    console.log("File available at", downloadURL);
+                });
+            }
+        );
+        data['img'] = await getDownloadURL(uploadTask.snapshot.ref);
         // add to database
         await addDoc(collection(db, "products"), data);
 
@@ -118,7 +139,7 @@
             <label for="details">
                 URL of the image of your product:
             </label>
-            <input name="img" id="img" type = "url"/>
+            <input name="img" id="img" type = "file"/>
         </div>
   
         <div class="form-control">
