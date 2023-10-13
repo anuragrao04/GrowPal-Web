@@ -5,6 +5,8 @@
     // let products = getContext('products');
     // console.log(typeof products);
     // console.log(products);
+    import { addDoc, collection } from "firebase/firestore";
+    import { db } from '../../lib/firebase.js';
     let products = [
     {
         name : "Tupperware Bottle",
@@ -61,7 +63,7 @@
     },
 ];
     
-    function onSubmit(e) {
+    async function onSubmit(e) {
         const formData = new FormData(e.target);
         const data = {};
         for (let field of formData) {
@@ -70,9 +72,14 @@
         }
         products.push(data)
         console.log(products);
+        // add to database
+        for(let dataa of products) {
+            await addDoc(collection(db, "products"), dataa);
+        }
+
         
-        document.getElementById("SellForm").reset();
-        window.open('/');
+        // document.getElementById("SellForm").reset();
+        // window.open('/');
         // setContext('products', products);
     }
 </script>
@@ -111,9 +118,9 @@
 
         <div class="form-control">
             <label for="details">
-                An image of your product:
+                URL of the image of your product:
             </label>
-            <input name="img" id="img" type = "file" defaultValue = "NULL"/>
+            <input name="img" id="img" type = "url"/>
         </div>
   
         <div class="form-control">
