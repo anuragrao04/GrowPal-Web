@@ -10,7 +10,7 @@ Growpal is an ecommerce app made specifically for apartment and villa societies.
 
 1. Make sure you have `nodejs` installed on your system.
 2. Clone this repository
-3. cd into the cloned directory: `cd MUNSocWebsite`
+3. cd into the cloned directory: `cd GrowPal-Web`
 4. Run `npm install` to install all the needed dependencies
 5. Run `yarn run dev` to localhost the website
 6. You can find the website at `http://localhost:5173`
