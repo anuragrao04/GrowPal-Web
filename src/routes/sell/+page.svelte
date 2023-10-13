@@ -72,7 +72,7 @@
             const [key, value] = field;
             data[key] = value;
         }
-        const file = e.target[0].files[0];
+        const file = e.target.img.files[0];
         const storageRef = ref(storage, file.name);
         const uploadTask = uploadBytesResumable(storageRef, file);
 
