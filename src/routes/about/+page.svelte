@@ -6,12 +6,30 @@
     </div>
 </body>
 <style>
-
     *{
-        font-family: 'Oxygen', sans-serif;
+        font-family: "Oxygen", sans-serif;
     }
-    body {
-        background-color: rgb(30, 30, 30);
+
+    body{
+        background-color: rgb(222, 201, 9);
+        padding: 20px;
+    }
+
+    h3{
+        font-size: 24px;
+        font-weight: 500;
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+
+    .flex{
+        justify-content: center;
+        align-items: center;
+    }
+
+    img{
+    max-width: 100%;
+    height: auto;
     }
 </style>
 
